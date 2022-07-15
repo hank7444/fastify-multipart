@@ -1,6 +1,6 @@
 {
-  "name": "fastify-multipart",
-  "version": "1.0.6",
+  "name": "@chcpayment/fastify-multipart",
+  "version": "1.0.7",
   "description": "Multipart plugin for Fastify",
   "main": "index.js",
   "typings": "index.d.ts",
@@ -45,18 +45,28 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/fastify/fastify-multipart.git"
+    "url": "git+https://github.com/hank7444/fastify-multipart.git"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/"
   },
   "keywords": [
     "fastify",
     "multipart",
     "form"
   ],
-  "author": "Matteo Collina <hello@matteocollina.com>",
+  "author": "Cheng-Han.Kuo <cheng-han.kuo@changehealthcare.com>",
   "license": "MIT",
   "greenkeeper": {
     "ignore": [
       "tap"
     ]
+  },
+  "bugs": {
+    "url": "https://github.com/hank7444/fastify-multipart/issues"
+  },
+  "homepage": "https://github.com/hank7444/fastify-multipart#readme",
+  "directories": {
+    "test": "test"
   }
 }
