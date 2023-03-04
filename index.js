@@ -1,7 +1,7 @@
 'use strict'
 
 const fp = require('fastify-plugin')
-const Busboy = require('busboy')
+const busboyInstance = require('busboy')
 const kMultipart = Symbol('multipart')
 const eos = require('end-of-stream')
 const deepmerge = require('deepmerge')
@@ -77,7 +77,7 @@ function defaultConsumer (field, file, filename, encoding, mimetype, body) {
 
 function busboy (options) {
   try {
-    return new Busboy(options)
+    return busboyInstance(options)
   } catch (error) {
     const errorEmitter = new PassThrough()
     process.nextTick(function () {
@@ -168,7 +168,8 @@ function fastifyMultipart (fastify, options, done) {
         req.emit('error', error)
       })
 
-    function wrap (field, file, filename, encoding, mimetype) {
+    function wrap (field, file, info) {
+      const { filename, encoding, mimeType: mimetype } = info;
       log.debug({ field, filename, encoding, mimetype }, 'parsing part')
       files++
       eos(file, waitForFiles)
